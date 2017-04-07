@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1425283875 source:d:\clanguage\practice\fruitmachine\fruitmachine.c
+	"fruitmachine.h"
+
+1425283971 d:\clanguage\practice\fruitmachine\fruitmachine.h
+	<stdio.h>
+	<conio.h>
+	<time.h>
+	<stdlib.h>
+
+1425283655 source:d:\clanguage\practice\fruitmachine\main.c
+	"fruitmachine.h"
+

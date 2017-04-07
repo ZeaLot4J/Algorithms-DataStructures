@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1434955122 source:d:\clanguage\practice\通讯录管理系统\main.c
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	<string.h>
+	<malloc.h>
+
+1434980927 source:d:\clanguage\practice\通讯录管理系统d6106\main.c
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	<string.h>
+	<malloc.h>
+

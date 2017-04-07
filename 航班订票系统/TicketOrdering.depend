@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1466669097 source:c:\users\v5-572g\desktop\ticketordering\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+
