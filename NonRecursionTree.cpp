@@ -68,6 +68,17 @@ void preOrderTraverse(BiNode* T, Stack &S){
         T = T->rchild;
     }
 }
+//前序遍历优化后的版本 java版 先压入右结点再压入左结点
+void preOrder(Node root) {
+    Deque<Node> stack = new ArrayDeque<Node>();
+    stack.push(root);
+    while(!stack.isEmpty()){
+        root = stack.pop();   
+        System.out.print(root.data+" ");
+        if(root.right!=null) stack.push(root.right);
+        if(root.left!=null) stack.push(root.left);
+    }
+}
 void inOrderTraverse(BiNode* T, Stack &S){
     Stack S;
     initStack(S);
