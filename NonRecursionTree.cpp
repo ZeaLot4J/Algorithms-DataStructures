@@ -93,6 +93,20 @@ void inOrderTraverse(BiNode* T, Stack &S){
         T = T->rchild;
     }
 }
+//前序遍历优化后的版本 java版 凭感觉
+void inOrder(Node root) {
+    Deque<Node> stack = new ArrayDeque<Node>();
+    while(!stack.isEmpty() || root!=null){
+        if(root!=null){
+            stack.push(root);
+            root = root.left;
+        }else{
+            root = stack.pop();
+            System.out.print(root.data+" ");
+            root = root.right;
+        }
+    }
+}
 /*
 this traverse is pretty good !
 the order of the stack pushing is right firstly, then left secondly.
