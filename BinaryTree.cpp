@@ -103,6 +103,19 @@ void invert(BiNode* T){
         invert(T->rchild);
     }
 }
+//java，求树根的topview
+void top_view(Node root){
+    tool(root, 0);
+}
+void tool(Node root, int order){
+    if(root!=null){
+        if(order>=0)
+            tool(root.left, 1);
+        System.out.print(root.data+" ");
+        if(order<=0)
+            tool(root.right, -1);
+    }
+}
 //BiNode* leftChild(BiNode* T, BiNode* p){
 //    if(T==NULL) return NULL;
 //    if(T==p)

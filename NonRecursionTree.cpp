@@ -79,6 +79,30 @@ void preOrder(Node root) {
         if(root.left!=null) stack.push(root.left);
     }
 }
+//前序遍历的最佳版本，Morris Traversal，时间复杂度O(n)，空间复杂度O(1)
+void preOrder(Node root) {
+    Node pre = null;
+    Node curr = root;
+    while(curr != null){
+        if(curr.left != null){
+            pre = curr.left;
+            while(pre.right!=null && pre.right!=curr){
+                pre = pre.right;
+            }
+            if(pre.right==null){
+                pre.right = curr;
+                System.out.print(curr.data+" ");
+                curr = curr.left;
+            }else{//pre.right == curr
+                pre.right = null;
+                curr = curr.right;
+            }
+        }else{
+            System.out.print(curr.data+" ");
+            curr = curr.right;
+        }
+    }
+}
 void inOrderTraverse(BiNode* T, Stack &S){
     Stack S;
     initStack(S);
@@ -93,7 +117,7 @@ void inOrderTraverse(BiNode* T, Stack &S){
         T = T->rchild;
     }
 }
-//前序遍历优化后的版本 java版 凭感觉
+//中序遍历优化后的版本 java版 凭感觉
 void inOrder(Node root) {
     Deque<Node> stack = new ArrayDeque<Node>();
     while(!stack.isEmpty() || root!=null){
@@ -104,6 +128,30 @@ void inOrder(Node root) {
             root = stack.pop();
             System.out.print(root.data+" ");
             root = root.right;
+        }
+    }
+}
+//中序最佳版本，Morris Traversal，时间复杂度O(n)，空间复杂度O(1)
+void inOrder(Node root) {
+    Node pre = null;
+    Node curr = root;
+    while(curr != null){
+        if(curr.left != null){
+            pre = curr.left;
+            while(pre.right!=null && pre.right!=curr){
+                pre = pre.right;
+            }
+            if(pre.right==null){
+                pre.right = curr;
+                curr = curr.left;
+            }else{//pre.right==curr
+                pre.right = null;
+                System.out.print(curr.data+" ");
+                curr = curr.right;
+            }
+        }else{
+            System.out.print(curr.data+" ");
+            curr = curr.right;
         }
     }
 }
