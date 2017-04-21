@@ -159,8 +159,6 @@ void inOrder(Node* root){
     }
     printf("\n");
 }
-
-
 #include <windows.h>
 int main(){
     int i;
@@ -187,12 +185,15 @@ int main(){
             break;
         case 3:
             printf("%d\n", getHeight(root));
+            getch();
             break;
         case 4:
-            printf("%d\n", getMaximumNode(root)->height);
+            printf("%d\n", getMaximumNode(root)->data);
+            getch();
             break;
         case 5:
-            printf("%d\n", getMinimumNode(root)->height);
+            printf("%d\n", getMinimumNode(root)->data);
+            getch();
             break;
         default:break;
         }
@@ -200,3 +201,4 @@ int main(){
     }
     return 0;
 }
+
