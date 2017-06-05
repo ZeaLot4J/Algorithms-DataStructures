@@ -32,7 +32,8 @@ void createSegTree(int left, int right, int root){
 /* 更新一个元素 */
 void update(int left, int right, int root, int i, int newVal){
     if(left >= right){
-        sum[root] = +newVal;
+        sum[root] += newVal;
+        return;
     }
     int mid = (left + right) / 2;
     if(i <= mid)
@@ -46,9 +47,10 @@ void rangeUpdate(int left, int right, int root, int uleft, int uright, int newVa
     if(uleft<=left && uright>=right){
         sum[root] += (right-left+1) * newVal;
         lazy[root] += newVal;
+        return;
     }
     int mid = (left + right) / 2;
-    pushDown(root, mid-left+1, right-mid+1);
+    //pushDown(root, mid-left+1, right-mid+1);
     if(uleft <= mid)
         rangeUpdate(left, mid, root*2, uleft, uright, newVal);
     if(uright >= mid+1)
@@ -78,6 +80,10 @@ int main(){
 
     printf("%d\n", query(1, n, 1, 1, 5));
 
-    printf();
+    rangeUpdate(1, n, 1,1, 3, 10);
+    update(1,n,1, 4,1);
+    printf("%d\n", query(1, n, 1, 1, 5));
+
+
     return 0;
 }
