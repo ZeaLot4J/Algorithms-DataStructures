@@ -59,11 +59,14 @@ void rangeUpdate(int left, int right, int root, int uleft, int uright, int newVa
 }
 /* 求某段区间的和 */
 int query(int left, int right, int root, int qleft, int qright){
-    if(qleft<=left && qright>=right)
+    if(qleft<=left && qright>=right){
+        sum[root] += lazy[root];
+        lazy[root] = 0;
         return sum[root];
+    }
     int res = 0;
     int mid = (left + right) / 2;
-    pushDown(root, mid-left+1, right-mid+1);
+    pushDown(root, mid-left+1, right-mid);
     if(qleft <= mid)
         res += query(left, mid, root*2, qleft, qright);
     if(qright >= mid+1)
